@@ -1,5 +1,7 @@
 # sentiment-analysis-lambda
 
+A demo project that uses the Distilbert fine tuned model for sentiment classification. I deployed the model (using AWS SAM CLI) to AWS Lambda using a docker image based deployment package. 
+
 This project contains source code and supporting files for a serverless application that you can deploy with the SAM CLI. It includes the following files and folders.
 
 - hello_world - Code for the application's Lambda function and Project Dockerfile.

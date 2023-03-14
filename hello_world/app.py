@@ -3,24 +3,13 @@ import json
 import torch
 from transformers import pipeline
 
-#from transformers import DistilBertTokenizer, DistilBertForSequenceClassification
-
-#model = joblib.load(trained_model.joblib)
-
-# tokenizer = DistilBertTokenizer.from_pretrained("distilbert-base-uncased-finetuned-sst-2-english")
-# model = DistilBertForSequenceClassification.from_pretrained("distilbert-base-uncased-finetuned-sst-2-english")
-
-
 model_pipeline = pipeline("sentiment-analysis",
                  model = "/opt/ml/model",
                  tokenizer= "/opt/ml/model")
 
 def lambda_handler(event, context):
 
-    #params = event['queryStringParameters']
-    #print(f"params = {params}")
-    #input_text = params["input_text"]
-    print(event)
+    #print(event)
 
     raw_str = r"{}".format(event['body'])
     body = json.loads(raw_str)
@@ -53,21 +42,7 @@ def lambda_handler(event, context):
 
     return response
 
-    # Use this code if you don't use the http event with the LAMBDA-PROXY
-    # integration
-    """
-    return {
-        "message": "Go Serverless v1.0! Your function executed successfully!",
-        "event": event
-    }
-    """
-
 def test_prediction():
-    # event = {
-    #     'queryStringParameters': {
-    #     "input_text":"You are nice"
-    #     }
-    #     }
 
     event = {
         "body": '{"message" : "You are nice"}'
