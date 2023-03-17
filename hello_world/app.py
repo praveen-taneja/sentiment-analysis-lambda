@@ -24,7 +24,7 @@ def lambda_handler(event, context):
     # predicted_class = model.config.id2label[predicted_class_id]
 
     result = model_pipeline(input_text)
-    print(result)
+    #print(result)
 
     body = {
         "message": "ok",
@@ -33,11 +33,12 @@ def lambda_handler(event, context):
 
     response = {
         "statusCode": 200,
-        "body": json.dumps(body),
-        # "headers": {
-        # "Access-Control-Allow-Origin": "*"
-        
-        # }
+        "headers": {
+        "Access-Control-Allow-Headers" : "Content-Type",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET, POST, OPTIONS"
+        },
+        "body": json.dumps(body)
     }
 
     return response
