@@ -13,6 +13,11 @@ Globals:
     Tracing: Active
   Api:
     TracingEnabled: true
+    Cors:
+      AllowMethods: "'GET, POST, OPTIONS'"
+      AllowHeaders: "'content-type'"
+      AllowOrigin: "'*'"
+      # AllowCredentials: true  Uncomment only if you choose a specific origin instead of the * wildcard.
 
 Resources:
   HelloWorldFunction:
